@@ -1,0 +1,42 @@
+ALGORITHM sentence_analyzer
+VAR
+    // Input variable
+    char : CHARACTER;
+    
+    // Counter variables 
+    length : INTEGER := 0;       
+    word_count : INTEGER := 1;      
+    vowel_count : INTEGER := 0;     
+    
+BEGIN
+    // Display instructions to the user
+    Write("Enter a sentence (end with a period '.'): ");
+    
+    // Read and process each character until we encounter a period
+    REPEAT
+        // Read one character
+        Read(char);
+        
+        // Increment length counter for each character 
+        length := length + 1;
+        
+        // Check if the character is a space
+        IF (char = ' ') THEN
+            word_count := word_count + 1;
+        END_IF
+        
+        // Check if the character is a vowel 
+        IF (char = 'a' OR char = 'e' OR char = 'i' OR char = 'o' OR char = 'u' OR 
+            char = 'A' OR char = 'E' OR char = 'I' OR char = 'O' OR char = 'U') THEN
+            vowel_count := vowel_count + 1;
+        END_IF
+        
+    UNTIL (char = '.')
+    
+    // Display the results
+    Write("--- Sentence Analysis Results ---");
+    Write("Length of the sentence (including the period): ", length);
+    Write("Number of words in the sentence: ", word_count);
+    Write("Number of vowels in the sentence: ", vowel_count);
+    
+END
